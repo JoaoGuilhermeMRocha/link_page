@@ -1,0 +1,268 @@
+/* =============================================
+   VARIÁVEIS GLOBAIS + PRESETS DE TEMA
+   Cada preset = uma "skin" de cliente.
+   ============================================= */
+
+:root {
+  --radius: 18px;
+  --font: "Inter", system-ui, -apple-system, sans-serif;
+  --max-width: 560px;
+}
+
+/* ---------- TEMA MIDNIGHT (padrão) ---------- */
+[data-theme="midnight"] {
+  --bg: #0d0d1a;
+  --bg-glow: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.35), transparent 60%);
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #ffffff;
+  --text-muted: #a5a5c0;
+  --accent: #7c3aed;
+  --accent-strong: #a855f7;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- TEMA LIGHT ---------- */
+[data-theme="light"] {
+  --bg: #f6f6fb;
+  --bg-glow: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.18), transparent 60%);
+  --card-bg: #ffffff;
+  --card-border: #e5e5ef;
+  --text: #1a1a2e;
+  --text-muted: #6b6b85;
+  --accent: #6366f1;
+  --accent-strong: #4f46e5;
+  --shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- TEMA OCEAN ---------- */
+[data-theme="ocean"] {
+  --bg: #052b3f;
+  --bg-glow: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.35), transparent 60%);
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #eafcff;
+  --text-muted: #8fd3e6;
+  --accent: #06b6d4;
+  --accent-strong: #22d3ee;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- TEMA SUNSET ---------- */
+[data-theme="sunset"] {
+  --bg: #2b0a1c;
+  --bg-glow: radial-gradient(circle at 50% 0%, rgba(244, 114, 182, 0.4), transparent 60%);
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #fff1f6;
+  --text-muted: #e6a4c0;
+  --accent: #ec4899;
+  --accent-strong: #f472b6;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- TEMA FOREST ---------- */
+[data-theme="forest"] {
+  --bg: #0c1f16;
+  --bg-glow: radial-gradient(circle at 50% 0%, rgba(34, 197, 94, 0.3), transparent 60%);
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #ecfff3;
+  --text-muted: #93d6ad;
+  --accent: #22c55e;
+  --accent-strong: #4ade80;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* =============================================
+   LAYOUT GERAL
+   ============================================= */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  background-image: var(--bg-glow);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+/* ============ PERFIL ============ */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+
+.avatar--initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+}
+
+.handle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+.bio {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 12px;
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+/* ============ LINKS ============ */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.link-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.link-card--highlight {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  border: none;
+  color: #fff;
+}
+
+.link-icon { font-size: 1.3rem; }
+.link-label { flex: 1; }
+.link-arrow {
+  opacity: 0.6;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.link-card:hover .link-arrow { transform: translateX(4px); opacity: 1; }
+
+/* ============ REDES ============ */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.social:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+/* ============ RODAPÉ ============ */
+.footer {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.footer a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.footer a:hover { color: var(--text); }
+
+/* ============ BOTÃO DE TEMA ============ */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  cursor: pointer;
+  font-size: 1.4rem;
+  backdrop-filter: blur(10px);
+  transition: transform 0.15s ease;
+}
+.theme-toggle:hover { transform: scale(1.1); }
+
+/* ============ RESPONSIVO ============ */
+@media (max-width: 400px) {
+  .name { font-size: 1.4rem; }
+  .link-card { padding: 14px 16px; }
+}
